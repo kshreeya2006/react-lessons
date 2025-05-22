@@ -8,9 +8,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>React Lessons</h1>
-      </div>
+      <div>React Lessons</div>
     </>
   )
 }
