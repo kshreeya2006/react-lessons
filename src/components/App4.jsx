@@ -4,15 +4,15 @@ export default function App4() {
     alert("Hello World");
   };
   const greetUser = (name) => {
-    alert("Hello"+name);
+    alert("Hello "+name);
   };
   return (
     <div>
       <h1>App4</h1>
       <h2>Event Handling</h2>
       <p>
-        <button onClick={greet}>Submit</button>
-        <button onClick={() => greetUser("John")}>Submit1</button>
+        <button onClick={greet}>Click Here</button>
+        <button onClick={() => greetUser("John")}>Greet</button>
       </p>
     </div>
   );
