@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 export default function App7() {
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
@@ -64,7 +65,7 @@ export default function App7() {
         />
         <button onClick={handleSearch}>Search</button>
       </p>
-      
+
       <ol>
         {filtered.map((value) => (
           <li key={value.name}>
