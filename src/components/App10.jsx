@@ -37,6 +37,11 @@ export default function App10() {
     });
   };
 
+  const overallTotal = Object.entries(cart).reduce((total, [id, qty]) => {
+    const product = products.find((p) => p.id === parseInt(id));
+    return total + product.price * qty;
+  }, 0);
+
   return (
     <div>
       <h1>Product List</h1>
@@ -68,6 +73,9 @@ export default function App10() {
             );
           })}
         </ul>
+      )}
+      {Object.keys(cart).length > 0 && (
+        <h3>Overall Total: ${overallTotal}</h3>
       )}
     </div>
   )
