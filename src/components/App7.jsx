@@ -3,8 +3,19 @@ import { useState } from "react";
 export default function App7() {
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
+  const [txt, setTxt] = useState();
+  const [filtered, setFiltered] = useState([]);
+
   const handleSubmit = () => {
     setUsers([...users, user]);
+  };
+
+  const handleSearch = () => {
+    setFiltered(users.filter((value) => value.city === txt));
+  };
+
+  const handleDelete = (n) => {
+    setUsers(users.filter((value) => value.name !== n));
   };
   return (
     <div align="center">
@@ -34,13 +45,32 @@ export default function App7() {
       </p>
       <button onClick={handleSubmit}>Submit</button>
       <hr />
+
       <ol>
         {users &&
           users.map((value) => (
             <li key={value.name}>
-              {value.name}-{value.age}-{value.city}
+              {value.name}-{value.age}-{value.city}-
+              <button onClick={() => handleDelete(value.name)}>Delete</button>
             </li>
           ))}
+      </ol>
+      <hr />
+      <p>
+        <input
+          type="text"
+          placeholder="Search City"
+          onChange={(e) => setTxt(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </p>
+      
+      <ol>
+        {filtered.map((value) => (
+          <li key={value.name}>
+            {value.name}-{value.age}-{value.city}
+          </li>
+        ))}
       </ol>
     </div>
   );
